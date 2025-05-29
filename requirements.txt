@@ -1,8 +1,8 @@
-streamlit
-moviepy
+streamlit==1.35.0
 yt-dlp
+moviepy
 ffmpeg-python
-torch
+scipy
 speechbrain
+soundfile
 requests
-pytest
