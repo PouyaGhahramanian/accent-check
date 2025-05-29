@@ -1,6 +1,7 @@
 import os
 import streamlit as st
 from tempfile import NamedTemporaryFile
+from tempfile import NamedTemporaryFile
 from audio_extraction import download_and_extract_audio, extract_audio
 from accent_detection import analyze_accent
 
@@ -40,13 +41,22 @@ with tab1:
             with st.spinner("Downloading and processing..."):
                 try:
                     audio_path = download_and_extract_audio(video_url)
-                    result = analyze_accent(audio_path)
+                        
+                    with NamedTemporaryFile(delete=False, suffix=".wav") as tmp_audio:
+                        with open(audio_path, 'rb') as src_file:
+                            tmp_audio.write(src_file.read())
+                        tmp_audio_path = tmp_audio.name
+
+                    result = analyze_accent(tmp_audio_path)
+                    os.remove(tmp_audio_path)
+
                     st.success("✅ Accent analysis complete!")
                     st.markdown(f"**Predicted Accent:** `{result['accent']}`")
                     st.markdown(f"**Confidence Score:** `{result['confidence']}%`")
                     with st.expander("🔍 Show Raw Scores"):
                         for accent, score in result["details"].items():
                             st.write(f"{accent}: {round(score * 100, 2)}%")
+
                 except Exception as e:
                     st.error(f"❌ Error: {e}")
 
@@ -59,17 +69,25 @@ with tab2:
                     with NamedTemporaryFile(delete=False, suffix=".mp4") as temp_video:
                         temp_video.write(uploaded_file.read())
                         temp_video_path = temp_video.name
-                    
+
                     audio_path = extract_audio(temp_video_path)
-                    result = analyze_accent(audio_path)
+
+                    with NamedTemporaryFile(delete=False, suffix=".wav") as tmp_audio:
+                        with open(audio_path, 'rb') as src_file:
+                            tmp_audio.write(src_file.read())
+                        tmp_audio_path = tmp_audio.name
+
+                    result = analyze_accent(tmp_audio_path)
+
+                    os.remove(temp_video_path)
+                    os.remove(tmp_audio_path)
+
                     st.success("✅ Accent analysis complete!")
                     st.markdown(f"**Predicted Accent:** `{result['accent']}`")
                     st.markdown(f"**Confidence Score:** `{result['confidence']}%`")
                     with st.expander("🔍 Show Raw Scores"):
                         for accent, score in result["details"].items():
                             st.write(f"{accent}: {round(score * 100, 2)}%")
-                    
-                    os.remove(temp_video_path)  # Clean up temp video
 
                 except Exception as e:
                     st.error(f"❌ Error: {e}")
