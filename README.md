@@ -9,6 +9,13 @@ This project uses pretrained models from [SpeechBrain](https://huggingface.co/sp
 
 ---
 
+## 🌐 Try it Online
+
+The app is hosted on **Streamlit Cloud**. You can try it here:  
+👉 [https://accentcheck.streamlit.app](https://accentcheck.streamlit.app)
+
+---
+
 ## 🚀 Features
 
 - 🔗 **Video URL Analysis** (MP4, Loom)
@@ -75,13 +82,6 @@ pip install -r requirements.txt
 ```bash
 streamlit run src/app.py
 ```
-
----
-
-## 🌐 Try it Online
-
-The app is hosted on **Streamlit Cloud**. You can try it here:  
-👉 [https://accentcheck.streamlit.app](https://accentcheck.streamlit.app)
 
 ---
 
