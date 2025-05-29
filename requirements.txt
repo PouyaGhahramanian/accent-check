@@ -1,9 +1,8 @@
-streamlit
-moviepy
-yt-dlp
-ffmpeg-python
-torch
-speechbrain
-requests
-pytest
-sentencepiece==0.1.99
+streamlit==1.45.1
+moviepy==2.2.1
+yt-dlp==2025.5.22
+ffmpeg-python==0.2.0
+torch==2.7.0
+speechbrain==1.0.3
+requests==2.32.3
+pytest==8.3.5
