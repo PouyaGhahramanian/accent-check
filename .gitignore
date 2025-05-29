@@ -10,3 +10,5 @@ ENV/
 build/
 dist/
 *.egg-info/
+downloads/
+audio/
