@@ -1,8 +1,9 @@
-streamlit==1.35.0
-yt-dlp
+streamlit
 moviepy
+yt-dlp
 ffmpeg-python
-scipy
+torch
 speechbrain
-soundfile
 requests
+pytest
+sentencepiece==0.1.99
