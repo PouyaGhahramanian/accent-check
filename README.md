@@ -58,7 +58,7 @@ This project uses pretrained models from [SpeechBrain](https://huggingface.co/sp
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/accent-check.git
+git clone https://github.com/pouyaghahramanian/accent-check.git
 cd accent-check
 ```
 
@@ -81,7 +81,7 @@ streamlit run src/app.py
 ## 🌐 Try it Online
 
 The app is hosted on **Streamlit Cloud**. You can try it here:  
-👉 [https://accent-check.streamlit.app](https://accent-check.streamlit.app)
+👉 [https://accentcheck.streamlit.app](https://accentcheck.streamlit.app)
 
 ---
 
