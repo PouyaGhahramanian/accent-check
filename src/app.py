@@ -79,7 +79,7 @@ with tab1:
                     st.success("✅ Accent analysis complete!")
                     st.markdown(f"**Predicted Accent:** `{result['accent']}`")
                     st.markdown(f"**Confidence Score:** `{result['confidence']}%`")
-                    with st.expander("🔍 Show Raw Scores"):
+                    with st.expander("🔍 Confidence Breakdown by Accent"):
                         for accent, score in result["details"].items():
                             st.write(f"{accent}: {round(score * 100, 2)}%")
 
@@ -111,7 +111,7 @@ with tab2:
                     st.success("✅ Accent analysis complete!")
                     st.markdown(f"**Predicted Accent:** `{result['accent']}`")
                     st.markdown(f"**Confidence Score:** `{result['confidence']}%`")
-                    with st.expander("🔍 Show Raw Scores"):
+                    with st.expander("🔍 Confidence Breakdown by Accent"):
                         for accent, score in result["details"].items():
                             st.write(f"{accent}: {round(score * 100, 2)}%")
 
@@ -136,7 +136,7 @@ with tab3:
                 st.success("✅ Accent analysis complete!")
                 st.markdown(f"**Predicted Accent:** `{result['accent']}`")
                 st.markdown(f"**Confidence Score:** `{result['confidence']}%`")
-                with st.expander("🔍 Show Raw Scores"):
+                with st.expander("🔍 Confidence Breakdown by Accent"):
                     for accent, score in result["details"].items():
                         st.write(f"{accent}: {round(score * 100, 2)}%")
         else:

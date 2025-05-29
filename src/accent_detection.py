@@ -37,10 +37,12 @@ def analyze_accent(audio_path):
         for label, prob in zip(all_labels, out_prob.squeeze().tolist())
     }
 
+    sorted_scores = dict(sorted(raw_scores.items(), key=lambda item: item[1], reverse=True))
+
     return {
         "accent": predicted_accent,
         "confidence": round(float(score) * 100, 2),
-        "details": raw_scores
+        "details": sorted_scores
     }
 
 if __name__ == '__main__':
